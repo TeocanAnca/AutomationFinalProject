@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="API Automation Training Suite">
+
+    <!-- ─────────────────────────────────────────────────────────────────
+         LEVEL 1  –  Basic tests
+         Everything is inline: raw URL, raw JSON body, no helpers.
+         Goal: understand the bare minimum to send an HTTP request.
+         ───────────────────────────────────────────────────────────────── -->
+    <test name="Level 1 - Basic Pet Tests (no helpers)">
+        <classes>
+            <class name="tests.PetBasicTests"/>
+        </classes>
+    </test>
+
+    <!-- ─────────────────────────────────────────────────────────────────
+         LEVEL 2  –  Best-practice tests
+         Uses BaseTest, RequestSpecification, ResponseSpecification,
+         POJO deserialization, TestDataFactory, Hamcrest, @DataProvider.
+         ───────────────────────────────────────────────────────────────── -->
+    <test name="Level 2 - Best Practice Pet Tests (full stack)">
+        <classes>
+            <class name="tests.PetApiTests"/>
+        </classes>
+    </test>
+
+</suite>
