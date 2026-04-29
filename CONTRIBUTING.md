@@ -13,7 +13,20 @@ A step-by-step guide for cloning, branching, and contributing to the API Automat
 
 ---
 
+## ✅ Before You Start
+
+This is a **public repository**, so:
+- ✅ You can **clone it freely** — no personal token needed
+- ✅ You just need a **GitHub account** (free) to contribute
+- ✅ HTTPS cloning works with your GitHub username and password
+- ℹ️ SSH setup is optional but recommended for convenience
+
+---
+
 ## Cloning the Repository
+
+### ℹ️ About This Repository
+This is a **public repository**, so **no authentication is needed** to clone it. Simply follow the steps below!
 
 ### Step 1: Open Terminal
 Open your terminal (or Git Bash on Windows) and navigate to where you want to store the project.
@@ -41,6 +54,12 @@ You should see:
 origin  https://github.com/manuel-negrean/api-automation-training-framework.git (fetch)
 origin  https://github.com/manuel-negrean/api-automation-training-framework.git (push)
 ```
+
+### ℹ️ Note on Pushing Changes
+To **push your changes** (after creating a branch and committing), you'll need:
+- GitHub account (free)
+- **No personal token required** - you can use HTTPS with your GitHub username and password
+- Or set up SSH for a smoother experience (optional)
 
 ---
 
