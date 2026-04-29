@@ -76,8 +76,14 @@ git checkout -b bugfix/fix-authentication-error
 # For a new feature
 git checkout -b feature/add-error-handling
 
-# Short version (create and switch in one command)
-git checkout -b feature/your-feature-name
+# For documentation
+git checkout -b docs/update-setup-guide
+
+# Simple examples with your own branch names
+git checkout -b test/myNewTests
+git checkout -b feature/myNewFeature
+git checkout -b bugfix/myBugFix
+git checkout -b docs/myDocUpdate
 ```
 
 ### Step 8: Verify Your New Branch
@@ -211,9 +217,14 @@ The repository maintainer will review your PR and either:
 ```bash
 # Create and switch to a new branch
 git checkout -b branch-name
+git checkout -b myNewBranch
+git checkout -b test/pet-crud-operations
+git checkout -b feature/add-logging
 
 # Switch to an existing branch
 git checkout branch-name
+git checkout main
+git checkout test/myUnfinishedWork
 
 # List all local branches
 git branch
@@ -226,12 +237,16 @@ git branch -a
 
 # Delete a local branch
 git branch -d branch-name
+git branch -d test/old-tests
+git branch -d feature/completed-feature
 
 # Delete a remote branch
 git push origin --delete branch-name
+git push origin --delete feature/old-feature
 
 # Rename current branch
 git branch -M new-name
+git branch -M test/improved-pet-tests
 ```
 
 ### Committing
@@ -247,12 +262,16 @@ git add .
 
 # Stage specific file
 git add filename
+git add src/test/java/tests/PetApiTests.java
 
 # Unstage a file
 git reset filename
+git reset src/main/java/utils/TestDataFactory.java
 
 # Commit with message
 git commit -m "Your message"
+git commit -m "Add pet creation test"
+git commit -m "Fix authentication header in BaseConfig"
 
 # Amend the last commit
 git commit --amend --no-edit
@@ -262,6 +281,7 @@ git log
 
 # See simplified commit history
 git log --oneline
+git log --oneline -5
 ```
 
 ### Syncing
@@ -271,27 +291,38 @@ git fetch origin
 
 # Pull changes from remote branch
 git pull origin main
+git pull origin test/pet-api-tests
 
 # Push your branch to remote
 git push origin branch-name
+git push origin test/myNewTests
+git push origin feature/new-feature
 
 # Push all branches
 git push origin --all
+
+# Set upstream and push in one command
+git push -u origin test/myBranch
 ```
 
 ### Undoing Changes
 ```bash
 # Discard changes in a file (before staging)
 git checkout -- filename
+git checkout -- src/test/java/tests/PetApiTests.java
 
 # Unstage a file
 git reset filename
+git reset src/main/java/config/BaseConfig.java
 
 # Undo last commit (keep changes)
 git reset --soft HEAD~1
 
 # Undo last commit (discard changes)
 git reset --hard HEAD~1
+
+# Discard all local changes
+git reset --hard
 ```
 
 ---
@@ -385,4 +416,60 @@ https://docs.github.com/en/get-started
 6. Wait for review and merge
 
 Happy coding! 🚀
+
+---
+
+## Quick Reference - Copy & Paste Examples
+
+### Complete Branch Workflow
+```bash
+# Step 1: Create and switch to new branch
+git checkout -b test/my-pet-tests
+
+# Step 2: Make changes in your files...
+
+# Step 3: Check what changed
+git status
+
+# Step 4: Stage and commit
+git add .
+git commit -m "Add comprehensive pet validation tests"
+
+# Step 5: Push to GitHub
+git push origin test/my-pet-tests
+
+# Step 6: Go to GitHub and create a Pull Request
+```
+
+### More Real-World Examples
+```bash
+# Create a branch for fixing a bug
+git checkout -b bugfix/fix-null-pointer-exception
+git add .
+git commit -m "Fix null pointer exception in TestDataFactory"
+git push origin bugfix/fix-null-pointer-exception
+
+# Create a branch for adding documentation
+git checkout -b docs/add-installation-guide
+git add docs/INSTALLATION.md
+git commit -m "Add installation guide for local setup"
+git push origin docs/add-installation-guide
+
+# Create a branch for a new feature
+git checkout -b feature/add-retry-mechanism
+git add src/main/java/utils/RetryHandler.java
+git commit -m "Add retry mechanism for flaky network requests"
+git push origin feature/add-retry-mechanism
+
+# Switch between branches
+git checkout main
+git checkout test/my-pet-tests
+git checkout feature/add-retry-mechanism
+
+# Delete a finished branch locally
+git branch -d test/completed-tests
+
+# Delete a finished branch on GitHub
+git push origin --delete feature/old-feature
+```
 
