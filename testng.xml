@@ -9,7 +9,7 @@
          ───────────────────────────────────────────────────────────────── -->
     <test name="Level 1 - Basic Pet Tests (no helpers)">
         <classes>
-            <class name="tests.PetBasicTests"/>
+            <class name="tests.PetTests"/>
         </classes>
     </test>
 
@@ -20,7 +20,7 @@
          ───────────────────────────────────────────────────────────────── -->
     <test name="Level 2 - Best Practice Pet Tests (full stack)">
         <classes>
-            <class name="tests.PetApiTests"/>
+            <class name="tests.PetTestImproved"/>
         </classes>
     </test>
 
