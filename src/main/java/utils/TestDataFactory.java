@@ -1,6 +1,7 @@
 package utils;
 
 import dto.PetDto;
+import dto.StoreOrderDto;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -16,5 +17,16 @@ public class TestDataFactory {
         petDto.setStatus(petStatus);
         petDto.setPhotoUrls(Collections.emptyList());
         return petDto;
+    }
+
+    public static StoreOrderDto createdStoreOrder (long id, long petId, int quantity, String shipDate, String status, boolean complete){
+        StoreOrderDto storeOrderDto = new StoreOrderDto();
+        storeOrderDto.setId(id);
+        storeOrderDto.setPetId(petId);
+        storeOrderDto.setQuantity(quantity);
+        storeOrderDto.setShipDate(shipDate);
+        storeOrderDto.setStatus(status);
+        storeOrderDto.setComplete(complete);
+        return storeOrderDto;
     }
 }
