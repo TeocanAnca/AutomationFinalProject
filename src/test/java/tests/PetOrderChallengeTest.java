@@ -24,10 +24,19 @@ public class PetOrderChallengeTest extends BaseTest {
         long id = System.currentTimeMillis();
         long petId = System.currentTimeMillis();
         String shipDate = LocalDateTime.now().toString();
-        StoreOrderDto storeOrderDto = TestDataFactory.createdStoreOrder(id, petId, 2, shipDate, "delivered", true);
+        //StoreOrderDto storeOrderDto = TestDataFactory.createdStoreOrder(id, petId, 2, shipDate, "delivered", true);
+        StoreOrderDto storeOrderDtoBuilder = StoreOrderDto.builder()
+                .id(id)
+                .petId(petId)
+                .quantity(2)
+                .shipDate(shipDate)
+                .status("delivered")
+                .complete(true)
+                .build();
+
         Response response = given()
                 .spec(requestSpecification)
-                .body(storeOrderDto)
+                .body(storeOrderDtoBuilder)
                 .log().all()
                 .when()
                 .post("/store/order")
@@ -50,6 +59,8 @@ public class PetOrderChallengeTest extends BaseTest {
 
         //String returnedStatus = createPetOrder.getStatus();
         Assert.assertEquals(createPetOrder.getStatus(), "delivered");
+
+        Assert.assertEquals(storeOrderDtoBuilder.getId(), createdOrderId, "Invalid id");
     }
 
     @Test

@@ -2,6 +2,7 @@ package utils;
 
 import dto.PetDto;
 import dto.StoreOrderDto;
+import dto.UserDto;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -28,5 +29,19 @@ public class TestDataFactory {
         storeOrderDto.setStatus(status);
         storeOrderDto.setComplete(complete);
         return storeOrderDto;
+    }
+
+    public static UserDto createUser (long id, String username, String firstName, String lastName, String email, String password, String phone, int userStatus)
+    {
+        UserDto userDtoObject = new UserDto();
+        userDtoObject.setId(id);
+        userDtoObject.setUsername(username);
+        userDtoObject.setFirstName(firstName);
+        userDtoObject.setLastName(lastName);
+        userDtoObject.setEmail(email);
+        userDtoObject.setPassword(password);
+        userDtoObject.setPhone(phone);
+        userDtoObject.setUserStatus(userStatus);
+        return userDtoObject;
     }
 }
