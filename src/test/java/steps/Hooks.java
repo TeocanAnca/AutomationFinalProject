@@ -2,6 +2,7 @@ package steps;
 
 import base.RequestSpecificationBuilder;
 import config.BaseConfig;
+import dto.BookingDto;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -10,19 +11,20 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.testng.Assert;
 import service.BookingService;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static steps.BookingSteps.lastBookingId;
 
 public class Hooks {
     private static final Logger log = LoggerFactory.getLogger(Hooks.class);
     private final BookingService bookingService = new BookingService();
 
     public static RequestSpecification requestSpecification;
-
     public static String token;
 
 
@@ -39,14 +41,17 @@ public class Hooks {
     }
 
     @After
-    public void tearDown(Scenario scenario){
-        if (BookingSteps.lastBookingId > 0) {
+    public void cleanUp(Scenario scenario){
+        if (lastBookingId > 0) {
             try {
-                bookingService.tryDeleteBooking(BookingSteps.lastBookingId);
+                bookingService.tryDeleteBooking(lastBookingId);
+                bookingService.getBooking(lastBookingId, 404);
+                log.info("The bookingId {} was successfully deleted", lastBookingId);
+
             } catch (Exception e) {
-                log.info("Cleanup: booking {} already deleted or not found", BookingSteps.lastBookingId);
+                log.info("Cleanup: booking {} already deleted or not found", lastBookingId);
             } finally {
-                BookingSteps.lastBookingId = 0;
+                lastBookingId = 0;
             }
         }
         log.info("Finished scenario");

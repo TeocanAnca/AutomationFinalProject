@@ -29,7 +29,7 @@ public class BookingSteps {
         ResponseBookingDto responseBookingDto = bookingService.createBooking(bookingBodyDto);
          getBookingId = responseBookingDto.getBookingId();
          lastBookingId = getBookingId;
-        log.info("Booking created and stored with id {}", getBookingId);
+         log.info("Booking created and stored with id {}", getBookingId);
     }
 
     @When("I retrieve the booking details")

@@ -5,7 +5,6 @@ Feature: Booking management on Restful-Booker API
     Given I create the booking
     When I retrieve the booking details
     Then the booking details are correct
-
     When I delete the booking
     Then the booking is successfully deleted
 
@@ -20,3 +19,5 @@ Feature: Booking management on Restful-Booker API
     Given I create the booking
     When I updated only the first name and total price
     Then the first name and total price are updated
+
+

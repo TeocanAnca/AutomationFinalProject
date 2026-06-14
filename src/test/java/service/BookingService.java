@@ -33,7 +33,7 @@ public class BookingService {
 
 
     public BookingDto getBooking(int bookingId, int statusCode){
-        log.info("Getting booking with id {}, expecting status {}", bookingId, statusCode);
+        log.info("Getting booking with id {}", bookingId);
         Response response = given()
                 .spec(Hooks.requestSpecification)
                 .log().all()

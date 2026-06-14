@@ -17,5 +17,4 @@ public class ResponseBookingDto {
     @JsonProperty("bookingid")
     private int bookingId;
     private BookingDto booking;
-
 }
