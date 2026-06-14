@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
-    private Logger Logger;
     protected final Logger log = LoggerFactory.getLogger(getClass());
     protected RequestSpecification requestSpecification;
 

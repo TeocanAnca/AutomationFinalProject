@@ -1,21 +1,21 @@
 package dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@Data
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StoreOrderDto {
-    private long id;
-    private long petId;
-    private int quantity;
-    private String shipDate;
-    private String status;
-    private boolean complete;
+
+public class ResponseBookingDto {
+    @JsonProperty("bookingid")
+    private int bookingId;
+    private BookingDto booking;
+
 }

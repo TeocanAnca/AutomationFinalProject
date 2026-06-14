@@ -3,24 +3,13 @@
 <suite name="API Automation Training Suite">
 
     <!-- ─────────────────────────────────────────────────────────────────
-         LEVEL 1  –  Basic tests
-         Everything is inline: raw URL, raw JSON body, no helpers.
-         Goal: understand the bare minimum to send an HTTP request.
+         LEVEL 1  –  BDD / Cucumber tests
+         Runs Cucumber scenarios via the CucumberTestRunner.
+         Step definitions are in the "steps" package (e.g. BookingSteps).
          ───────────────────────────────────────────────────────────────── -->
-    <test name="Level 1 - Basic Pet Tests (no helpers)">
+    <test name="Level 3 - Cucumber BDD Tests">
         <classes>
-            <class name="tests.PetTests"/>
-        </classes>
-    </test>
-
-    <!-- ─────────────────────────────────────────────────────────────────
-         LEVEL 2  –  Best-practice tests
-         Uses BaseTest, RequestSpecification, ResponseSpecification,
-         POJO deserialization, TestDataFactory, Hamcrest, @DataProvider.
-         ───────────────────────────────────────────────────────────────── -->
-    <test name="Level 2 - Best Practice Pet Tests (full stack)">
-        <classes>
-            <class name="tests.PetTestImproved"/>
+            <class name="runner.CucumberTestRunner"/>
         </classes>
     </test>
 
